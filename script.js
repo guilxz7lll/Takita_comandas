@@ -198,15 +198,26 @@ function renderizarComanda(comanda){
 // =====================================
 
 
-function iniciarCronometro(comanda,card){
+function iniciarCronometro(comanda, card){
 
 
     const visor =
     card.querySelector(".cronometro");
 
 
+    const intervalo = setInterval(()=>{
 
-    setInterval(()=>{
+
+        // se não estiver pendente, para o relógio
+
+        if(comanda.status !== "PENDENTE"){
+
+            clearInterval(intervalo);
+
+            return;
+
+        }
+
 
 
         const agora =
@@ -223,31 +234,29 @@ function iniciarCronometro(comanda,card){
 
 
         const h =
-        Math.floor(
-            tempo/3600
-        );
+        Math.floor(tempo / 3600);
 
 
 
         const m =
         Math.floor(
-            (tempo%3600)/60
+            (tempo % 3600) / 60
         );
 
 
 
         const s =
-        tempo%60;
+        tempo % 60;
 
 
 
         visor.innerText =
 
         String(h).padStart(2,"0")
-        +":"
+        + ":"
         +
         String(m).padStart(2,"0")
-        +":"
+        + ":"
         +
         String(s).padStart(2,"0");
 
