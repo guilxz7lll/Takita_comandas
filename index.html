@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Takita Sushi - Sistema de Comandas</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Takita Sushi</h1>
+        <h2>Sistema de Comandas</h2>
+    </header>
+
+    <main>
+
+        <!-- NOVA COMANDA -->
+        <section class="nova-comanda">
+
+            <h3>Nova Comanda</h3>
+
+            <div class="campo">
+                <label>Nome do Cliente</label>
+                <input
+                    type="text"
+                    id="cliente"
+                    placeholder="Digite o nome do cliente">
+            </div>
+
+            <div class="campo">
+                <label>Consumo</label>
+
+                <select id="tipoConsumo">
+                    <option value="Local">Consumir no Local</option>
+                    <option value="Levar">Levar</option>
+                </select>
+            </div>
+
+            <button id="btnCriarComanda">
+                Criar Comanda
+            </button>
+
+        </section>
+
+        <!-- LISTA DE COMANDAS -->
+
+        <section id="listaComandas">
+
+            <!-- As comandas serão criadas aqui pelo JavaScript -->
+
+        </section>
+
+    </main>
+
+
+
+
+
+    <!-- ===================================== -->
+    <!-- MODAL ADICIONAR PRODUTO -->
+    <!-- ===================================== -->
+
+    <div id="modalProduto" class="modal oculto">
+
+        <div class="modal-conteudo">
+
+            <h2>Adicionar Produto</h2>
+
+            <div class="campo">
+
+                <label>Categoria</label>
+
+                <select id="categoria">
+
+                    <option value="">Selecione...</option>
+
+                    <option value="Doces">Doces</option>
+                    <option value="Sushi">Sushi</option>
+                    <option value="Lanches">Lanches</option>
+                    <option value="Bebidas">Bebidas</option>
+
+                </select>
+
+            </div>
+
+            <div class="campo">
+
+                <label>Produto</label>
+
+                <select id="produto">
+
+                    <option value="">Selecione...</option>
+
+                </select>
+
+            </div>
+
+            <div class="campo">
+
+                <label>Quantidade</label>
+
+                <input
+                    type="number"
+                    id="quantidade"
+                    value="1"
+                    min="1">
+
+            </div>
+
+            <div
+                class="campo oculto"
+                id="campoEspecificacao">
+
+                <label>Especificação / Sabor</label>
+
+                <select id="especificacao">
+
+                    <option value="">Selecione...</option>
+
+                </select>
+
+            </div>
+
+            <div class="campo">
+
+                <label>Observação</label>
+
+                <textarea
+                    id="observacao"
+                    rows="3"
+                    placeholder="Opcional"></textarea>
+
+            </div>
+
+            <div class="botoesModal">
+
+                <button
+                    id="btnAdicionarProduto">
+
+                    Adicionar
+
+                </button>
+
+                <button
+                    id="btnFecharModal">
+
+                    Cancelar
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ===================================== -->
+    <!-- TEMPLATE DA COMANDA -->
+    <!-- ===================================== -->
+
+    <template id="templateComanda">
+
+        <div class="comanda">
+
+            <div class="topo">
+
+                <h2 class="numero">
+                    #000
+                </h2>
+
+                <span class="status pendente">
+                    PENDENTE
+                </span>
+
+            </div>
+
+            <div class="informacoes">
+
+                <p>
+                    <strong>Cliente:</strong>
+                    <span class="cliente"></span>
+                </p>
+
+                <p>
+                    <strong>Consumo:</strong>
+                    <span class="consumo"></span>
+                </p>
+
+                <p>
+                    <strong>Tempo:</strong>
+                    <span class="cronometro">
+                        00:00:00
+                    </span>
+                </p>
+
+            </div>
+
+            <hr>
+
+            <h3>Pedidos</h3>
+
+            <div class="pedidos">
+
+            </div>
+
+            <hr>
+
+            <p class="valorTotal">
+
+                Total:
+
+                <strong>
+                    R$
+                    <span class="total">
+                        0,00
+                    </span>
+                </strong>
+
+            </p>
+
+            <div class="campo">
+
+                <label>Forma de pagamento</label>
+
+                <select class="pagamento">
+
+                    <option value="">Não informado</option>
+
+                    <option>Pix</option>
+
+                    <option>Dinheiro</option>
+
+                    <option>Cartão de Débito</option>
+
+                    <option>Cartão de Crédito</option>
+
+                </select>
+
+            </div>
+
+            <div class="acoes">
+
+                <button class="btnProduto">
+                    + Produto
+                </button>
+
+                <button class="btnPago">
+                    Pago
+                </button>
+
+                <button class="btnCancelar">
+                    Cancelar
+                </button>
+
+            </div>
+
+        </div>
+
+    </template>
+
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
